@@ -64,8 +64,6 @@
   value: 2
 - name: Facebook
   value: 1
-- name: facebook
-  value: 1
 - name: 取締役
   value: 2
 - name: 一期一会
@@ -222,3 +220,9 @@
   value: 2
 - name: ゴールドカラー
   value: 2
+- name: 開発
+  value: 1
+- name: 学んだ
+  value: 1
+- name: 勉強になる
+  value: 1

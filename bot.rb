@@ -35,11 +35,11 @@ end
 EM.run do
   # auto folllow and unfollow (every 5 minutes)
   EM.add_periodic_timer(300) do
-    friends   = rest.friend_ids.all
-    followers = rest.follower_ids.all
+    friends   = rest.friend_ids.attrs[:ids]
+    followers = rest.follower_ids.attrs[:ids]
     to_follow = friends - followers
     to_unfollow = followers - friends
-     # follow
+    # follow
     log.info('to follow: %s' % to_follow.inspect)
     to_follow.each do |id|
       log.info('follow %s' % id)

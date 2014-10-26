@@ -72,7 +72,6 @@ EM.run do
   
   stream.userstream do |status|
     next if status.retweet?
-    next if status.reply?
     if high_level?(status.text)
       log.info('status @%s: %s' % [status.user.screen_name, status.text])
       EM.add_timer(rand(5) + 5) do

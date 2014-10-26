@@ -1,0 +1,28 @@
+{
+    "name": "High Ishiki Bot",
+    "description": "意識が高いツイートをファボる",
+    "keywords": [
+        "Twitter",
+        "bot"
+    ],
+    "website": "https://twitter.com/ishikimeter",
+    "repository": "https://github.com/umeyuki/ruby-ishiki-meter-bot",
+    "env": {
+        "TWITTER_CONSUMER_KEY": {
+            "description": "twitter consumer key",
+            "required": true
+        },
+        "TWITTER_CONSUMER_SECRET": {
+            "description": "twitter consumer secret",
+            "required": true
+        },
+        "TWITTER_ACCESS_TOKEN": {
+            "description": "twitter access token",
+            "required": true
+        },
+        "TWITTER_ACCESS_TOKEN_SECRET": {
+            "description": "twitter access token secret",
+            "required": true
+        }
+    }
+}

@@ -80,9 +80,7 @@ EM.run do
         end
       end    
     end
-
   end
-  
 end
 
 

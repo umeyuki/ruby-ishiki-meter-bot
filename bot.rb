@@ -37,8 +37,9 @@ EM.run do
   EM.add_periodic_timer(300) do
     friends   = rest.friend_ids.attrs[:ids]
     followers = rest.follower_ids.attrs[:ids]
-    to_follow = friends - followers
-    to_unfollow = followers - friends
+    to_follow   = followers - friends
+    to_unfollow = friends - followers
+    
     # follow
     log.info('to follow: %s' % to_follow.inspect)
     to_follow.each do |id|
@@ -51,14 +52,16 @@ EM.run do
         log.error(e)
       end
     end
-    #unfollow
-    log.info('to unfollow: %s', to_unfollow.inspect)
+    # unfollow
+    log.info('to unfollow: %s' % to_unfollow.inspect)
     to_unfollow.each do |id|
       log.info('unfollow %s' % id)
       begin
         if rest.unfollow(id)
           log.info('done.')
         end
+      rescue => e
+        log.error(e)
       end
     end
   end

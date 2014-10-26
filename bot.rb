@@ -32,7 +32,6 @@ EM.error_handler do |e|
   raise e.message
 end
 
-
 EM.run do
   # auto folllow and unfollow (every 5 minutes)
   EM.add_periodic_timer(300) do
@@ -57,7 +56,7 @@ EM.run do
     to_unfollow.each do |id|
       log.info('unfollow %s' % id)
       begin
-        if.rest.unfollow(id)
+        if rest.unfollow(id)
           log.info('done.')
         end
       end
@@ -67,23 +66,23 @@ EM.run do
   stream.on_inited do
     log.info('init')
   end
+  
   stream.userstream do |status|
     next if status.retweet?
     next if status.reply?
-
+    p status
     log.info('status @%s: %s' % [status.from_user, status.text])
-    if high_level?(status.text)
-      EM.add_timer(rand(5) + 5) do
-        begin
-          tweet = rest.retweet(status.id)
-          if tweet
-            log.info('tweeted: %s' % tweet.text)
-          end
-        rescue => e
-          log.error(e)
-        end
-      end    
-    end
+    EM.add_timer(rand(5) + 5) do
+      begin
+        p 'hello'
+        tweet = rest.favorite(status.id)    
+      rescue => e
+        log.error(e)
+      end
+    end    
+    
+    # if high_level?(status.text)
+    # end
 
   end
   

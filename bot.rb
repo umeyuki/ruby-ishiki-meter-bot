@@ -70,19 +70,16 @@ EM.run do
   stream.userstream do |status|
     next if status.retweet?
     next if status.reply?
-    p status
-    log.info('status @%s: %s' % [status.from_user, status.text])
-    EM.add_timer(rand(5) + 5) do
-      begin
-        p 'hello'
-        tweet = rest.favorite(status.id)    
-      rescue => e
-        log.error(e)
-      end
-    end    
-    
-    # if high_level?(status.text)
-    # end
+    if high_level?(status.text)
+      log.info('status @%s: %s' % [status.user.screen_name, status.text])
+      EM.add_timer(rand(5) + 5) do
+        begin
+          tweet = rest.favorite(status.id)    
+        rescue => e
+          log.error(e)
+        end
+      end    
+    end
 
   end
   

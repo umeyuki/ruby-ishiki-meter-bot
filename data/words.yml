@@ -186,7 +186,7 @@
   value: 2
 - name: ToDo
   value: 2
-- name: スタバ
+- name: スタバ|スターバックス
   value: 3
 - name: 挽きたて
   value: 2
@@ -238,3 +238,17 @@
   value: 1
 - name: 休む暇
   value: 1
+- name: シェアハウス
+  value: 2
+- name: ミーティング
+  value: 1
+- name: 国民
+  value: 1
+- name: wifi
+  value: 1
+- name: シムフリー
+  value: 1
+- name:  創造
+  value: 2
+- name: プロジェクト
+  value: 2

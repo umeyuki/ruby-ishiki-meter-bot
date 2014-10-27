@@ -7,7 +7,7 @@ module Ishiki
     words = YAML.load_file('./data/words.yml')
     level = 0
     words.each do | w |
-      if text.match(/#{w['name']}/)
+      if text.match(/#{w['name']}/i)
         level += w['value']
       end
     end
